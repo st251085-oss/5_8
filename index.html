@@ -12,6 +12,9 @@
             touch-action: none;
             overflow: hidden;
             font-family: 'Courier New', Courier, monospace;
+            height: 100vh;
+            height: 100dvh; /* モダンブラウザ用：URLバーを除いた実際の画面高さ */
+            width: 100vw;
         }
         canvas {
             display: block;
@@ -36,9 +39,15 @@
         .btn-control:active {
             background: rgba(255, 255, 255, 0.3);
         }
+        #tetris {
+            /* 画面の高さに合わせてキャンバスを自動縮小し、下のボタンが隠れないようにする */
+            max-height: calc(100vh - 240px);
+            max-height: calc(100dvh - 240px);
+            width: auto;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white h-screen flex flex-col items-center justify-center">
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center">
 
     <div class="text-center mb-2">
         <h1 class="text-3xl font-bold tracking-widest text-blue-400">TETRIS</h1>
